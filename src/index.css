@@ -966,6 +966,17 @@ footer {
     display: none;
   }
 
+  .nav-cta {
+    font-size: 11px;
+    padding: 8px 14px;
+  }
+
+  .nav-wa-icon {
+    width: 13px;
+    height: 13px;
+    margin-right: 4px;
+  }
+
   .hero-strip {
     gap: 32px;
   }
