@@ -1,16 +1,14 @@
-const footerLinks = {
-    Services: [
-        'Software Solutions',
-        'Website Creation',
-        'AI Automation',
-        'CRM & Follow-up',
-        'Lead Generation',
-    ],
-    Company: ['About', 'Portfolio', 'Blog', 'Careers', 'Contact'],
-    Legal: ['Privacy Policy', 'Terms of Service', 'GDPR'],
-};
+import { useLang } from '../i18n';
 
 export default function Footer() {
+    const { t } = useLang();
+
+    const footerLinks = {
+        [t('footer.col1')]: [t('footer.s1'), t('footer.s2'), t('footer.s3')],
+        [t('footer.col2')]: [t('footer.c1'), t('footer.c2'), t('footer.c3'), t('footer.c4'), t('footer.c5')],
+        [t('footer.col3')]: [t('footer.l1'), t('footer.l2'), t('footer.l3')],
+    };
+
     return (
         <footer>
             <div className="footer-top">
@@ -20,7 +18,7 @@ export default function Footer() {
                         Accelera
                     </div>
                     <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, maxWidth: 260 }}>
-                        The agency growth platform. Software, automation, and AI for digital agencies.
+                        {t('footer.tagline')}
                     </p>
                 </div>
                 {Object.entries(footerLinks).map(([title, links]) => (
@@ -35,8 +33,8 @@ export default function Footer() {
                 ))}
             </div>
             <div className="footer-bottom">
-                <span>© 2025 Accelera. All rights reserved.</span>
-                <span>Built with care · Algeria 🇩🇿</span>
+                <span>{t('footer.copy')}</span>
+                <span>{t('footer.credit')}</span>
             </div>
         </footer>
     );

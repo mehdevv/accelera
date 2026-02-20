@@ -1,15 +1,17 @@
 import { useEffect, useRef } from 'react';
-
-const bars = [
-    { label: 'Prospecting', value: '142 leads', width: '90%' },
-    { label: 'Qualified', value: '89 leads', width: '62%' },
-    { label: 'Proposal Sent', value: '54 leads', width: '38%' },
-    { label: 'Negotiation', value: '31 leads', width: '22%' },
-    { label: 'Closed Won', value: '24 clients', width: '17%' },
-];
+import { useLang } from '../i18n';
 
 export default function ResultCRM() {
+    const { t } = useLang();
     const barRef = useRef<HTMLDivElement>(null);
+
+    const bars = [
+        { labelKey: 'crm.bar1', valKey: 'crm.bar1.val', width: '90%' },
+        { labelKey: 'crm.bar2', valKey: 'crm.bar2.val', width: '62%' },
+        { labelKey: 'crm.bar3', valKey: 'crm.bar3.val', width: '38%' },
+        { labelKey: 'crm.bar4', valKey: 'crm.bar4.val', width: '22%' },
+        { labelKey: 'crm.bar5', valKey: 'crm.bar5.val', width: '17%' },
+    ];
 
     useEffect(() => {
         const el = barRef.current;
@@ -38,28 +40,26 @@ export default function ResultCRM() {
             <div className="section-inner">
                 <div className="results-layout flip">
                     <div className="reveal">
-                        <span className="eyebrow">CRM & Pipeline</span>
-                        <div className="s-title">Every client,<br /><span>fully tracked</span></div>
-                        <p className="s-sub" style={{ marginBottom: 0 }}>
-                            Stop losing deals to forgotten follow-ups. See exactly where every lead stands and what happens next — automatically.
-                        </p>
+                        <span className="eyebrow">{t('crm.eyebrow')}</span>
+                        <div className="s-title">{t('crm.title1')}<br /><span>{t('crm.title2')}</span></div>
+                        <p className="s-sub" style={{ marginBottom: 0 }}>{t('crm.sub')}</p>
                         <ul className="result-list">
-                            <li><div className="li-dot">✓</div>Visual CRM pipeline across all stages</li>
-                            <li><div className="li-dot">✓</div>Auto-reminders and task assignment</li>
-                            <li><div className="li-dot">✓</div>Client-facing portals and status updates</li>
-                            <li><div className="li-dot">✓</div>Integrates with Notion, HubSpot, Sheets & more</li>
+                            <li><div className="li-dot">✓</div>{t('crm.li1')}</li>
+                            <li><div className="li-dot">✓</div>{t('crm.li2')}</li>
+                            <li><div className="li-dot">✓</div>{t('crm.li3')}</li>
+                            <li><div className="li-dot">✓</div>{t('crm.li4')}</li>
                         </ul>
                     </div>
                     <div className="result-visual reveal r2">
                         <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--text3)', letterSpacing: 1, textTransform: 'uppercase' as const, marginBottom: 16 }}>
-                            Pipeline Health
+                            {t('crm.pipeline')}
                         </div>
                         <div className="bar-section" ref={barRef}>
                             {bars.map((bar, i) => (
                                 <div className="bar-row" key={i}>
                                     <div className="bar-meta">
-                                        <span>{bar.label}</span>
-                                        <span style={{ color: 'var(--blue)', fontWeight: 700 }}>{bar.value}</span>
+                                        <span>{t(bar.labelKey)}</span>
+                                        <span style={{ color: 'var(--blue)', fontWeight: 700 }}>{t(bar.valKey)}</span>
                                     </div>
                                     <div className="bar-track">
                                         <div className="bar-fill" style={{ width: bar.width }}></div>
@@ -68,9 +68,9 @@ export default function ResultCRM() {
                             ))}
                         </div>
                         <div style={{ marginTop: 20, padding: 16, background: 'var(--blue-pale)', borderRadius: 10, border: '1px solid var(--border2)' }}>
-                            <div style={{ fontSize: 13, color: 'var(--text2)', fontWeight: 500 }}>This month vs last month</div>
+                            <div style={{ fontSize: 13, color: 'var(--text2)', fontWeight: 500 }}>{t('crm.compare')}</div>
                             <div style={{ fontSize: 28, fontWeight: 800, color: 'var(--blue)', letterSpacing: -1, marginTop: 4 }}>
-                                +32% <span style={{ fontSize: 15, color: 'var(--text3)', fontWeight: 400 }}>pipeline value</span>
+                                +32% <span style={{ fontSize: 15, color: 'var(--text3)', fontWeight: 400 }}>{t('crm.pipeline.val')}</span>
                             </div>
                         </div>
                     </div>

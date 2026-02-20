@@ -99,7 +99,7 @@ nav.scrolled {
 }
 
 .nav-cta {
-  background: var(--blue);
+  background: #25D366;
   color: white;
   border: none;
   padding: 10px 22px;
@@ -109,13 +109,42 @@ nav.scrolled {
   font-weight: 600;
   cursor: pointer;
   transition: all .2s;
-  box-shadow: 0 2px 12px rgba(26, 86, 219, 0.25);
+  box-shadow: 0 2px 12px rgba(37, 211, 102, 0.25);
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .nav-cta:hover {
-  background: var(--blue-dark);
+  background: #1ebe5d;
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(26, 86, 219, 0.35);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lang-toggle {
+  background: var(--blue-pale);
+  color: var(--blue);
+  border: 1px solid var(--border2);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s;
+  letter-spacing: 0.5px;
+}
+
+.lang-toggle:hover {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
 }
 
 /* ─── REVEAL ─── */
@@ -228,7 +257,7 @@ nav.scrolled {
 }
 
 .hero-btn {
-  background: var(--blue);
+  background: #25D366;
   color: white;
   border: none;
   padding: 16px 40px;
@@ -238,15 +267,15 @@ nav.scrolled {
   font-weight: 700;
   cursor: pointer;
   transition: all .25s var(--ease);
-  box-shadow: 0 4px 24px rgba(26, 86, 219, 0.3);
+  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3);
   opacity: 0;
   animation: fadeUp .7s .5s var(--ease) forwards;
 }
 
 .hero-btn:hover {
-  background: var(--blue-dark);
+  background: #1ebe5d;
   transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(26, 86, 219, 0.4);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
 }
 
 .hero-note {
@@ -799,8 +828,8 @@ section {
 }
 
 .btn-white {
-  background: white;
-  color: var(--blue);
+  background: #25D366;
+  color: white;
   border: none;
   padding: 16px 40px;
   border-radius: 10px;
@@ -809,12 +838,13 @@ section {
   font-weight: 700;
   cursor: pointer;
   transition: all .25s var(--ease);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3);
 }
 
 .btn-white:hover {
+  background: #1ebe5d;
   transform: translateY(-3px);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4);
 }
 
 /* ─── FOOTER ─── */
@@ -953,4 +983,229 @@ footer {
   .logos {
     gap: 32px;
   }
+}
+
+/* ─── RAMADAN PROMO ─── */
+.ramadan-promo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 8px;
+}
+
+.ramadan-pricing {
+  opacity: 0;
+  animation: fadeUp .5s .6s ease forwards;
+}
+
+
+.ramadan-timer {
+  opacity: 0;
+  animation: fadeUp .5s 1s ease forwards;
+}
+
+/* WhatsApp icon in buttons */
+.btn-wa-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.nav-wa-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  margin-right: 6px;
+}
+
+
+.hero-btn,
+.btn-white {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ramadan-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 20px;
+  border-radius: 50px;
+  opacity: 0;
+  animation: fadeUp .5s .8s ease forwards, ramadan-glow 2s 1.3s ease-in-out infinite alternate;
+}
+
+@keyframes ramadan-glow {
+  from {
+    box-shadow: 0 0 8px rgba(26, 86, 219, 0.2);
+  }
+
+  to {
+    box-shadow: 0 0 20px rgba(26, 86, 219, 0.45);
+  }
+}
+
+.ramadan-crescent {
+  font-size: 18px;
+  color: white;
+}
+
+.ramadan-discount {
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.ramadan-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.ramadan-scope {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.3px;
+  padding-left: 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.ramadan-pricing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ramadan-old-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 80, 80, 0.8);
+  text-decoration: line-through;
+}
+
+.ramadan-arrow {
+  font-size: 16px;
+  color: rgba(26, 86, 219, 0.5);
+}
+
+.ramadan-new-price {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -0.5px;
+}
+
+.ramadan-timer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.timer-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 8px 12px;
+  min-width: 52px;
+}
+
+.timer-num {
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.timer-sep {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(26, 86, 219, 0.4);
+  margin: 0 -2px;
+}
+
+/* Ramadan in CTA */
+.cta-inner .ramadan-promo {
+  margin: 16px 0;
+}
+
+.cta-inner .ramadan-arrow {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cta-inner .ramadan-new-price {
+  color: white;
+}
+
+/* ─── RTL (ARABIC) ─── */
+[dir="rtl"] {
+  font-family: 'Bricolage Grotesque', 'Noto Sans Arabic', sans-serif;
+}
+
+[dir="rtl"] .hero,
+[dir="rtl"] .section-center {
+  text-align: center;
+}
+
+[dir="rtl"] .s-sub {
+  text-align: center;
+}
+
+[dir="rtl"] .results-layout.flip {
+  direction: ltr;
+}
+
+[dir="rtl"] .result-list li {
+  flex-direction: row;
+}
+
+[dir="rtl"] .flow-item {
+  flex-direction: row;
+}
+
+[dir="rtl"] .testi-author {
+  flex-direction: row;
+}
+
+[dir="rtl"] .bar-meta {
+  flex-direction: row;
+}
+
+[dir="rtl"] .footer-bottom {
+  flex-direction: row;
+}
+
+[dir="rtl"] nav {
+  flex-direction: row;
+}
+
+[dir="rtl"] .nav-links {
+  flex-direction: row;
+}
+
+[dir="rtl"] .nav-right {
+  flex-direction: row;
 }

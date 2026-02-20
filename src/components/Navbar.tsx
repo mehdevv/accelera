@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useLang } from '../i18n';
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
+    const { lang, toggle, t } = useLang();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -16,13 +18,21 @@ export default function Navbar() {
                 Accelera
             </a>
             <ul className="nav-links">
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Solutions</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="#">{t('nav.services')}</a></li>
+                <li><a href="#">{t('nav.solutions')}</a></li>
+                <li><a href="#">{t('nav.portfolio')}</a></li>
+                <li><a href="#">{t('nav.pricing')}</a></li>
+                <li><a href="#">{t('nav.blog')}</a></li>
             </ul>
-            <button className="nav-cta">Book a Demo</button>
+            <div className="nav-right">
+                <button className="lang-toggle" onClick={toggle} title={lang === 'en' ? 'العربية' : 'English'}>
+                    {lang === 'en' ? 'AR' : 'EN'}
+                </button>
+                <a href="https://wa.me/213542452129" target="_blank" rel="noopener noreferrer" className="nav-cta">
+                    <img src="/whatsapp-white-icon.png" alt="WhatsApp" className="nav-wa-icon" />
+                    {t('nav.cta')}
+                </a>
+            </div>
         </nav>
     );
 }

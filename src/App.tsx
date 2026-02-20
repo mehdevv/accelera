@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import './index.css'
+import { LangProvider } from './i18n'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -29,7 +30,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <LangProvider>
       <Navbar />
       <Hero />
       <Services />
@@ -39,7 +40,7 @@ function App() {
       <Testimonials />
       <CTA />
       <Footer />
-    </>
+    </LangProvider>
   )
 }
 

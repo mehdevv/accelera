@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react';
+import { useLang } from '../i18n';
+import RamadanPromo from './RamadanPromo';
 
 function countUp(el: HTMLElement, target: number, suffix: string) {
     const dur = 1800;
@@ -12,17 +14,18 @@ function countUp(el: HTMLElement, target: number, suffix: string) {
     requestAnimationFrame(update);
 }
 
-const stats = [
-    { count: 200, suffix: '+', label: 'Projects Delivered' },
-    { count: 98, suffix: '%', label: 'Client Retention' },
-    { count: 10, suffix: 'x', label: 'Average Growth' },
-    { count: 48, suffix: 'h', label: 'Avg. Delivery' },
-];
-
 export default function Hero() {
+    const { t } = useLang();
     const stripRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const videoWrapRef = useRef<HTMLDivElement>(null);
+
+    const stats = [
+        { count: 200, suffix: '+', label: t('hero.stat1') },
+        { count: 98, suffix: '%', label: t('hero.stat2') },
+        { count: 10, suffix: 'x', label: t('hero.stat3') },
+        { count: 48, suffix: 'h', label: t('hero.stat4') },
+    ];
 
     // Count-up observer
     useEffect(() => {
@@ -73,15 +76,16 @@ export default function Hero() {
             <div style={{ height: 48 }}></div>
 
             <h1>
-                Accelerate your agency with <img src="/logo.png" alt="Accelera" style={{ height: '0.85em', display: 'inline-block', verticalAlign: 'baseline', filter: 'brightness(0) saturate(100%) invert(27%) sepia(87%) saturate(2000%) hue-rotate(217deg) brightness(88%) contrast(95%)' }} />
+                {t('hero.title')} <img src="/logo.png" alt="Accelera" style={{ height: '0.85em', display: 'inline-block', verticalAlign: 'baseline', filter: 'brightness(0) saturate(100%) invert(27%) sepia(87%) saturate(2000%) hue-rotate(217deg) brightness(88%) contrast(95%)' }} />
             </h1>
 
-            <p className="hero-sub">
-                Software solutions, stunning websites, and AI-driven automation that transform how agencies operate — and grow.
-            </p>
+            <p className="hero-sub">{t('hero.sub')}</p>
 
-            <button className="hero-btn">Start Your Project</button>
-            <p className="hero-note">No commitment · Free discovery call</p>
+            <a href="https://wa.me/213542452129" target="_blank" rel="noopener noreferrer" className="hero-btn">
+                <img src="/whatsapp-white-icon.png" alt="WhatsApp" className="btn-wa-icon" />
+                {t('hero.btn')}
+            </a>
+            <RamadanPromo />
 
             {/* Auto-play video when visible */}
             <div className="hero-video-wrap" ref={videoWrapRef}>
