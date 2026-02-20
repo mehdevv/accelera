@@ -23,7 +23,7 @@ const translations: Record<string, Record<Lang, string>> = {
     'nav.portfolio': { en: 'Portfolio', ar: 'الأعمال' },
     'nav.pricing': { en: 'Pricing', ar: 'الأسعار' },
     'nav.blog': { en: 'Blog', ar: 'المدونة' },
-    'nav.cta': { en: 'Contact Us', ar: 'تواصل معنا' },
+    'nav.cta': { en: 'whatsapp', ar: 'واتساب' },
 
     // ─── HERO ───
     'hero.title': { en: 'Accelerate your agency with', ar: 'سرّع وكالتك مع' },
