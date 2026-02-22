@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './index.css'
 import { LangProvider } from './i18n'
 import Navbar from './components/Navbar'
@@ -10,6 +11,21 @@ import SocialProof from './components/SocialProof'
 import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
+import ServicePage from './pages/ServicePage'
+
+function HomePage() {
+  return (
+    <>
+      <Hero />
+      <Services />
+      <ResultAutomation />
+      <ResultCRM />
+      <SocialProof />
+      <Testimonials />
+      <CTA />
+    </>
+  )
+}
 
 function App() {
   // Scroll-reveal observer
@@ -32,13 +48,10 @@ function App() {
   return (
     <LangProvider>
       <Navbar />
-      <Hero />
-      <Services />
-      <ResultAutomation />
-      <ResultCRM />
-      <SocialProof />
-      <Testimonials />
-      <CTA />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<ServicePage />} />
+      </Routes>
       <Footer />
     </LangProvider>
   )

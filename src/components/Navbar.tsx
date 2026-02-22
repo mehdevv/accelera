@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useLang } from '../i18n';
 
 export default function Navbar() {
@@ -13,12 +14,12 @@ export default function Navbar() {
 
     return (
         <nav className={scrolled ? 'scrolled' : ''}>
-            <a href="#" className="nav-logo">
+            <Link to="/" className="nav-logo">
                 <img src="/logo.png" alt="Accelera" />
                 Accelera
-            </a>
+            </Link>
             <ul className="nav-links">
-                <li><a href="#">{t('nav.services')}</a></li>
+                <li><Link to="/services">{t('nav.services')}</Link></li>
                 <li><a href="#">{t('nav.solutions')}</a></li>
                 <li><a href="#">{t('nav.portfolio')}</a></li>
                 <li><a href="#">{t('nav.pricing')}</a></li>
@@ -36,3 +37,4 @@ export default function Navbar() {
         </nav>
     );
 }
+
