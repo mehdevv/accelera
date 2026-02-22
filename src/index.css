@@ -10,7 +10,7 @@
   --text3: #8A9DB8;
   --border: rgba(26, 86, 219, 0.1);
   --border2: rgba(26, 86, 219, 0.18);
-  --font: 'Bricolage Grotesque', sans-serif;
+  --font: 'Vazirmatn', 'Bricolage Grotesque', sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1173,7 +1173,8 @@ footer {
 
 /* ─── RTL (ARABIC) ─── */
 [dir="rtl"] {
-  font-family: 'Bricolage Grotesque', 'Noto Sans Arabic', sans-serif;
+  font-family: 'Vazirmatn', 'Bricolage Grotesque', sans-serif;
+  --font: 'Vazirmatn', 'Bricolage Grotesque', sans-serif;
 }
 
 [dir="rtl"] .hero,
@@ -2148,6 +2149,7 @@ footer {
 }
 
 @media (max-width: 480px) {
+
   .sp-hero-actions .sp-btn-primary,
   .sp-hero-actions .sp-btn-secondary {
     width: 100%;
