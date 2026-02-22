@@ -1328,8 +1328,65 @@ footer {
 
 .sp-btn-primary:hover {
   background: #1ebe5d;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.35);
+}
+
+.hero-offer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--white);
+  border: none;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  transition: all 0.25s var(--ease);
+  animation: offerPulse 2.5s infinite ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-offer-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  animation: offerShine 3s infinite;
+}
+
+.hero-offer-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 36px rgba(26, 86, 219, 0.4);
+  animation: none;
+}
+
+@keyframes offerPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 4px 20px rgba(26, 86, 219, 0.25);
+  }
+
+  50% {
+    box-shadow: 0 6px 30px rgba(26, 86, 219, 0.45);
+  }
+}
+
+@keyframes offerShine {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  60%,
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .sp-btn-secondary {

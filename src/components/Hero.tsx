@@ -81,10 +81,15 @@ export default function Hero() {
 
             <p className="hero-sub">{t('hero.sub')}</p>
 
-            <a href="https://wa.me/213542452129" target="_blank" rel="noopener noreferrer" className="hero-btn">
-                <img src="/whatsapp-white-icon.png" alt="WhatsApp" className="btn-wa-icon" />
-                {t('hero.btn')}
-            </a>
+            <div className="reveal" style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', marginBottom: 32 }}>
+                <a href="https://wa.me/213542452129" target="_blank" rel="noopener noreferrer" className="hero-btn">
+                    <img src="/whatsapp-white-icon.png" alt="WhatsApp" className="btn-wa-icon" />
+                    {t('hero.btn')}
+                </a>
+                <a href="/services" className="hero-offer-btn">
+                    {t('hero.offer')}
+                </a>
+            </div>
             <RamadanPromo />
 
             {/* Auto-play video when visible */}

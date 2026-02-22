@@ -198,6 +198,7 @@ const translations: Record<string, Record<Lang, string>> = {
         ar: 'نركبولك صفحة مبيعات احترافية تحوّل الزيارات لكليان مؤهلين — بنفس الميزانية ونتائج أكبر.',
     },
     'sp.hero.cta': { en: '🎯 Book a free call', ar: '🎯 احجز مكالمة مجانية' },
+    'hero.offer': { en: 'See Our Offer', ar: 'شوف العرض تاعنا' },
     'sp.hero.cta2': { en: 'How does the system work?', ar: 'كيفاش يخدم السيستام؟' },
     'sp.hero.stat1.num': { en: '+80%', ar: '+80%' },
     'sp.hero.stat1.label': { en: 'Revenue increase', ar: 'زيادة في الأرباح' },
