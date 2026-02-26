@@ -1432,8 +1432,8 @@ white background
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 32px 64px rgba(0, 0, 0, 0.3);
   background: #000;
-  /* 16:9 aspect ratio matching original landscape video */
-  padding-bottom: 56.25%;
+  /* 1440x1920 aspect ratio (3:4 width:height) */
+  padding-bottom: 133.33%;
   height: 0;
   max-width: 800px;
   margin: 40px auto 0;

@@ -119,7 +119,7 @@ export default function ServicePage() {
                     <div className="sp-video-container reveal r4">
                         <iframe
                             className="sp-video-iframe"
-                            src="https://www.youtube.com/embed/wIVDytr3SUE?autoplay=1&mute=1&loop=1&playlist=wIVDytr3SUE&controls=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1"
+                            src="https://www.youtube.com/embed/wIVDytr3SUE?autoplay=1&mute=0&loop=1&playlist=wIVDytr3SUE&controls=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1"
                             title="Labeeb Academy Explainer"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
