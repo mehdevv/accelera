@@ -9,7 +9,7 @@ import ResultCRM from './components/ResultCRM'
 import SocialProof from './components/SocialProof'
 import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
-import LangToggle from './components/LangToggle'
+
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import Footer from './components/Footer'
 import ServicePage from './pages/ServicePage'
@@ -48,7 +48,7 @@ function App() {
 
   return (
     <LangProvider>
-      <LangToggle />
+
       <FloatingWhatsApp />
       <Routes>
         <Route path="/" element={<HomePage />} />

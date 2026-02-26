@@ -155,24 +155,36 @@ nav.compact.visible {
   gap: 12px;
 }
 
-.lang-toggle {
+.nav-wa-secondary {
   background: var(--blue-pale);
   color: var(--blue);
   border: 1px solid var(--border2);
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-family: var(--font);
-  font-size: 13px;
-  font-weight: 700;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: all .2s;
-  letter-spacing: 0.5px;
+  text-decoration: none;
 }
 
-.lang-toggle:hover {
-  background: var(--blue);
-  color: white;
-  border-color: var(--blue);
+.nav-wa-secondary:hover {
+  background: #25D366;
+  border-color: #25D366;
+  transform: scale(1.05);
+}
+
+.nav-wa-secondary .nav-wa-icon-small {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(87%) saturate(2000%) hue-rotate(217deg) brightness(88%) contrast(95%);
+  transition: filter .2s;
+}
+
+.nav-wa-secondary:hover .nav-wa-icon-small {
+  filter: brightness(0) invert(1);
 }
 
 /* ─── REVEAL ─── */

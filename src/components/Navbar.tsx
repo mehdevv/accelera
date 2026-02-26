@@ -5,7 +5,7 @@ import { useLang } from '../i18n';
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
-    const { lang, toggle, t } = useLang();
+    const { t } = useLang();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 150);
@@ -35,9 +35,9 @@ export default function Navbar() {
                     <li><a href="#">{t('nav.blog')}</a></li>
                 </ul>
                 <div className="nav-right">
-                    <button className="lang-toggle" onClick={toggle} title={lang === 'en' ? 'العربية' : 'English'}>
-                        {lang === 'en' ? 'AR' : 'EN'}
-                    </button>
+                    <a href="https://wa.me/213542452129" target="_blank" rel="noopener noreferrer" className="nav-wa-secondary">
+                        <img src="/whatsapp-white-icon.png" alt="WhatsApp" className="nav-wa-icon-small" />
+                    </a>
                     <a href="https://wa.me/213542452129" target="_blank" rel="noopener noreferrer" className="nav-cta">
                         <img src="/whatsapp-white-icon.png" alt="WhatsApp" className="nav-wa-icon" />
                         {t('nav.cta')}
