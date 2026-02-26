@@ -10,6 +10,7 @@ import SocialProof from './components/SocialProof'
 import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
 
+import NavRamadanPromo from './components/NavRamadanPromo'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import Footer from './components/Footer'
 import ServicePage from './pages/ServicePage'
@@ -48,7 +49,7 @@ function App() {
 
   return (
     <LangProvider>
-
+      <NavRamadanPromo />
       <FloatingWhatsApp />
       <Routes>
         <Route path="/" element={<HomePage />} />
