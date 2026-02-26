@@ -4,7 +4,8 @@
   --blue-pale: #EEF4FF;
   --blue-mid: #DBEAFE;
   --white: #FFFFFF;
-  --bg: #F7F9FF;
+  --bg: #F0F7FF;
+  /* Unified light blue background */
   --text: #0B1629;
   --text2: #4A5E80;
   --text3: #8A9DB8;
@@ -59,6 +60,33 @@ nav {
 
 nav.scrolled {
   background: rgba(255, 255, 255, 0.9);
+}
+
+/* Compact Navbar */
+.nav-trigger {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 101;
+  pointer-events: none;
+}
+
+.nav-trigger.active {
+  pointer-events: auto;
+}
+
+nav {
+  transition: transform 0.4s var(--ease), background 0.3s, box-shadow 0.3s;
+}
+
+nav.compact {
+  transform: translateX(-50%) translateY(-150%);
+}
+
+nav.compact.visible {
+  transform: translateX(-50%) translateY(0);
 }
 
 .nav-logo {
@@ -305,8 +333,11 @@ nav.scrolled {
   background: var(--text);
 }
 
+.hero-video-iframe {
+  display: none;
+}
+
 .hero-video {
-  display: block;
   width: 100%;
   height: auto;
   border-radius: 20px;
@@ -1248,6 +1279,86 @@ footer {
   background: var(--white);
 }
 
+/* Standalone Lang Toggle */
+/*
+- [x] Improve audience section design
+white background
+- [x] Make logo blue throughout the page
+- [x] Remove floating navbar and implement top-left language toggle
+- [x] Add floating WhatsApp button in top-right corner
+- [x] Improve sales flow visual design
+- [x] Improve benefits section design
+*/
+.standalone-lang-toggle {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 1000;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text3);
+  transition: all 0.2s;
+}
+
+.lang-btn:hover {
+  color: var(--blue);
+}
+
+.lang-btn.active {
+  background: var(--blue-pale);
+  color: var(--blue);
+}
+
+.lang-divider {
+  width: 1px;
+  background: var(--border);
+}
+
+/* Floating WhatsApp */
+.floating-whatsapp {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000;
+  background: #25D366;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s var(--ease);
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.floating-whatsapp img {
+  width: 20px;
+  height: 20px;
+}
+
 .sp-hero-glow {
   position: absolute;
   top: 20%;
@@ -1258,6 +1369,83 @@ footer {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(26, 86, 219, 0.06) 0%, transparent 70%);
   pointer-events: none;
+}
+
+/* Services Hero - White Theme */
+.sp-hero {
+  background: var(--white);
+  color: var(--text);
+  padding: 80px 0 80px;
+  text-align: center;
+}
+
+.sp-hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.sp-hero-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  /* Apply blue filter as requested */
+  filter: brightness(0) saturate(100%) invert(27%) sepia(87%) saturate(2000%) hue-rotate(217deg) brightness(88%) contrast(95%);
+}
+
+.sp-social-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sp-social-proof img {
+  height: 160px;
+  /* Even bigger as requested */
+  width: auto;
+  object-fit: contain;
+}
+
+.sp-social-proof span {
+  font-size: 0.9rem;
+  color: var(--text2);
+  font-weight: 500;
+}
+
+.sp-hero .sp-h1 {
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.sp-hero .sp-hero-sub {
+  color: var(--text2);
+  margin: 0 auto 48px;
+}
+
+.sp-video-container {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.3);
+  background: #000;
+  /* 16:9 aspect ratio matching original landscape video */
+  padding-bottom: 56.25%;
+  height: 0;
+  max-width: 800px;
+  margin: 40px auto 0;
+}
+
+.sp-video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .sp-hero-badge {
@@ -1474,33 +1662,63 @@ footer {
 
 .sp-audience-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
 }
 
 .sp-audience-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.8);
+  gap: 20px;
+  padding: 24px;
+  background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: border-color 0.2s;
+  border-radius: 16px;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.sp-audience-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--blue-pale) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
 }
 
 .sp-audience-item:hover {
-  border-color: rgba(26, 86, 219, 0.3);
+  transform: translateY(-5px);
+  border-color: var(--blue);
+  box-shadow: 0 12px 30px rgba(26, 86, 219, 0.08);
 }
 
-.sp-audience-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--blue);
+.sp-audience-item:hover::before {
+  opacity: 1;
+}
+
+.sp-audience-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--blue-pale);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 1;
   flex-shrink: 0;
+}
+
+.sp-audience-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  z-index: 1;
+  line-height: 1.4;
 }
 
 /* ─── SP PROBLEM ─── */
@@ -1512,15 +1730,100 @@ footer {
 }
 
 .sp-flow-visual {
-  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* Reduced gap */
+  margin-bottom: 40px;
+  /* Reduced margin */
+  flex-wrap: nowrap;
+  padding: 10px;
+  /* Reduced padding */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sp-flow-step {
+  flex-shrink: 0;
+  padding: 10px 14px;
+  /* Significantly reduced padding */
+  background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 32px;
-  margin-bottom: 48px;
-  font-size: 0.95rem;
-  color: var(--text2);
-  text-align: center;
-  direction: ltr;
+  border-radius: 10px;
+  /* Smaller radius */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Reduced gap */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s var(--ease);
+  position: relative;
+}
+
+.sp-flow-step:hover {
+  transform: translateY(-2px);
+  border-color: var(--blue-light);
+  box-shadow: 0 6px 15px rgba(26, 86, 219, 0.08);
+}
+
+.sp-flow-step.negative {
+  background: #FEF2F2;
+  border-color: #FECACA;
+  color: #991B1B;
+}
+
+.sp-flow-step.negative:hover {
+  border-color: #EF4444;
+  box-shadow: 0 6px 15px rgba(239, 68, 68, 0.1);
+}
+
+.sp-flow-step.positive {
+  background: var(--blue-pale);
+  border-color: var(--blue-light);
+  color: var(--blue);
+}
+
+.sp-flow-step.positive:hover {
+  border-color: var(--blue);
+  box-shadow: 0 6px 15px rgba(26, 86, 219, 0.15);
+}
+
+.sp-flow-step-icon {
+  font-size: 1rem;
+  /* Smaller icons */
+}
+
+.sp-flow-step-text {
+  font-size: 0.85rem;
+  /* Smaller text */
+  font-weight: 700;
+}
+
+.sp-flow-arrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  color: var(--text3);
+  transform: scaleX(-1);
+  /* Inverse the arrow direction */
+}
+
+.sp-flow-arrow svg {
+  width: 14px;
+  /* Smaller arrows */
+  height: 14px;
+}
+
+@media (max-width: 1024px) {
+  .sp-flow-visual {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .sp-flow-arrow {
+    transform: rotate(90deg);
+  }
 }
 
 .sp-problems-grid {
@@ -1681,57 +1984,76 @@ footer {
 
 .sp-benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
 }
 
 .sp-benefit-card {
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 28px;
-  transition: all 0.3s var(--ease);
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.4s var(--ease);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: right;
+  /* Maintain RTL alignment */
 }
 
-.sp-benefit-card::before {
+.sp-benefit-card::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+  inset: 0;
+  background: radial-gradient(circle at top left, var(--blue-pale) 0%, transparent 70%);
   opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.sp-benefit-card:hover::before {
-  opacity: 1;
+  transition: opacity 0.4s var(--ease);
 }
 
 .sp-benefit-card:hover {
-  border-color: rgba(26, 86, 219, 0.3);
-  transform: translateY(-5px);
-  box-shadow: 0 16px 40px rgba(26, 86, 219, 0.08);
+  transform: translateY(-8px);
+  border-color: var(--blue-light);
+  box-shadow: 0 20px 40px rgba(26, 86, 219, 0.06);
+}
+
+.sp-benefit-card:hover::after {
+  opacity: 1;
 }
 
 .sp-benefit-icon {
-  font-size: 2rem;
-  margin-bottom: 16px;
-  display: block;
+  width: 56px;
+  height: 56px;
+  background: var(--blue-pale);
+  border: 1px solid var(--border2);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  z-index: 1;
+  transition: transform 0.4s var(--ease);
+}
+
+.sp-benefit-card:hover .sp-benefit-icon {
+  transform: scale(1.1) rotate(-5deg);
 }
 
 .sp-benefit-title {
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   font-weight: 800;
-  margin-bottom: 10px;
+  color: var(--text);
+  margin-bottom: 12px;
+  z-index: 1;
 }
 
 .sp-benefit-desc {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text2);
+  line-height: 1.6;
+  z-index: 1;
 }
 
 /* ─── SP PROOF ─── */

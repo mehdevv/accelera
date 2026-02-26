@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState, Fragment } from 'react';
 import { useLang } from '../i18n';
 
 export default function ServicePage() {
@@ -15,7 +15,22 @@ export default function ServicePage() {
         { num: 'sp.hero.stat4.num', label: 'sp.hero.stat4.label' },
     ];
 
-    const audience = ['sp.audience.1', 'sp.audience.2', 'sp.audience.3', 'sp.audience.4', 'sp.audience.5', 'sp.audience.6'];
+    const audience = [
+        { icon: '📣', key: 'sp.audience.1' },
+        { icon: '🌱', key: 'sp.audience.2' },
+        { icon: '📸', key: 'sp.audience.3' },
+        { icon: '📬', key: 'sp.audience.4' },
+        { icon: '🎯', key: 'sp.audience.5' },
+        { icon: '🚀', key: 'sp.audience.6' },
+    ];
+
+    const problemFlow = [
+        { key: 'sp.problem.flow.1', icon: '📢' },
+        { key: 'sp.problem.flow.2', icon: '💬' },
+        { key: 'sp.problem.flow.3', icon: '⏳' },
+        { key: 'sp.problem.flow.4', icon: '🤷‍♂️' },
+        { key: 'sp.problem.flow.5', icon: '❌', negative: true },
+    ];
 
     const problems = [
         { icon: '🌀', title: 'sp.problem.c1.title', desc: 'sp.problem.c1.desc' },
@@ -31,7 +46,13 @@ export default function ServicePage() {
         { num: 'sp.system.s4.num', icon: 'sp.system.s4.icon', title: 'sp.system.s4.title', desc: 'sp.system.s4.desc' },
     ];
 
-    const flowSteps = ['sp.system.flow.1', 'sp.system.flow.2', 'sp.system.flow.3', 'sp.system.flow.4', 'sp.system.flow.5'];
+    const systemFlow = [
+        { key: 'sp.system.flow.1', icon: '📢' },
+        { key: 'sp.system.flow.2', icon: '🌐' },
+        { key: 'sp.system.flow.3', icon: '🎯' },
+        { key: 'sp.system.flow.4', icon: '📱' },
+        { key: 'sp.system.flow.5', icon: '🤝', positive: true },
+    ];
 
     const benefits = [
         { icon: '⚡', title: 'sp.benefits.b1.title', desc: 'sp.benefits.b1.desc' },
@@ -80,14 +101,33 @@ export default function ServicePage() {
             <section className="sp-hero" id="sp-hero">
                 <div className="sp-hero-glow" />
                 <div className="sp-container">
-                    <div className="sp-hero-badge reveal">{t('sp.hero.badge')}</div>
+                    <div className="sp-hero-header reveal">
+                        <img src="/logo.png" alt="Labeeb Academy" className="sp-hero-logo" />
+                        <div className="sp-social-proof">
+                            <img src="/experts.png" alt="Experts" />
+                        </div>
+                    </div>
+
                     <h1 className="sp-h1 reveal r2">
                         {t('sp.hero.title1')}<br />
                         <span className="sp-h1-highlight">{t('sp.hero.title2')}</span><br />
                         {t('sp.hero.title3')}
                     </h1>
+
                     <p className="sp-hero-sub reveal r3">{t('sp.hero.sub')}</p>
-                    <div className="sp-hero-actions reveal r4">
+
+                    <div className="sp-video-container reveal r4">
+                        <iframe
+                            className="sp-video-iframe"
+                            src="https://www.youtube.com/embed/wIVDytr3SUE?autoplay=1&mute=1&loop=1&playlist=wIVDytr3SUE&controls=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1"
+                            title="Labeeb Academy Explainer"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+
+                    <div className="sp-hero-actions reveal r5" style={{ marginTop: '48px', justifyContent: 'center' }}>
                         <a href="https://wa.me/213542452129" target="_blank" rel="noopener noreferrer" className="sp-btn-primary">
                             <img src="/whatsapp-white-icon.png" alt="WhatsApp" />
                             {t('sp.hero.cta')}
@@ -96,7 +136,8 @@ export default function ServicePage() {
                             {t('sp.hero.cta2')}
                         </button>
                     </div>
-                    <div className="sp-hero-stats reveal r5">
+
+                    <div className="sp-hero-stats reveal r6">
                         {stats.map((s, i) => (
                             <div className="sp-stat-item" key={i}>
                                 <span className="sp-stat-num">{t(s.num)}</span>
@@ -115,10 +156,10 @@ export default function ServicePage() {
                         <h2>{t('sp.audience.title')}</h2>
                     </div>
                     <div className="sp-audience-grid reveal r2">
-                        {audience.map((key, i) => (
+                        {audience.map((item, i) => (
                             <div className="sp-audience-item" key={i}>
-                                <div className="sp-audience-dot" />
-                                {t(key)}
+                                <div className="sp-audience-icon">{item.icon}</div>
+                                <div className="sp-audience-text">{t(item.key)}</div>
                             </div>
                         ))}
                     </div>
@@ -133,7 +174,23 @@ export default function ServicePage() {
                         <h2>{t('sp.problem.title')}</h2>
                         <p className="sp-section-desc">{t('sp.problem.desc')}</p>
                     </div>
-                    <div className="sp-flow-visual reveal r2">{t('sp.problem.flow')}</div>
+                    <div className="sp-flow-visual reveal r2">
+                        {problemFlow.map((step, i) => (
+                            <Fragment key={i}>
+                                <div className={`sp-flow-step ${step.negative ? 'negative' : ''}`}>
+                                    <span className="sp-flow-step-icon">{step.icon}</span>
+                                    <span className="sp-flow-step-text">{t(step.key)}</span>
+                                </div>
+                                {i < problemFlow.length - 1 && (
+                                    <div className="sp-flow-arrow">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M5 12h14M12 5l7 7-7 7" />
+                                        </svg>
+                                    </div>
+                                )}
+                            </Fragment>
+                        ))}
+                    </div>
                     <div className="sp-problems-grid reveal r3">
                         {problems.map((p, i) => (
                             <div className="sp-problem-card" key={i}>
@@ -171,14 +228,21 @@ export default function ServicePage() {
                     </div>
                     <div className="sp-new-flow reveal r3">
                         <div className="sp-flow-label">{t('sp.system.flow.label')}</div>
-                        <div className="sp-flow-steps">
-                            {flowSteps.map((key, i) => (
-                                <span key={i}>
-                                    <span className={`sp-flow-step-box ${i === flowSteps.length - 1 ? 'sp-flow-step-final' : ''}`}>
-                                        {t(key)}
-                                    </span>
-                                    {i < flowSteps.length - 1 && <span className="sp-flow-chevron">→</span>}
-                                </span>
+                        <div className="sp-flow-visual">
+                            {systemFlow.map((step, i) => (
+                                <Fragment key={i}>
+                                    <div className={`sp-flow-step ${step.positive ? 'positive' : ''}`}>
+                                        <span className="sp-flow-step-icon">{step.icon}</span>
+                                        <span className="sp-flow-step-text">{t(step.key)}</span>
+                                    </div>
+                                    {i < systemFlow.length - 1 && (
+                                        <div className="sp-flow-arrow">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M5 12h14M12 5l7 7-7 7" />
+                                            </svg>
+                                        </div>
+                                    )}
+                                </Fragment>
                             ))}
                         </div>
                     </div>

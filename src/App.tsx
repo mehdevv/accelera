@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './index.css'
 import { LangProvider } from './i18n'
-import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import ResultAutomation from './components/ResultAutomation'
@@ -10,6 +9,8 @@ import ResultCRM from './components/ResultCRM'
 import SocialProof from './components/SocialProof'
 import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
+import LangToggle from './components/LangToggle'
+import FloatingWhatsApp from './components/FloatingWhatsApp'
 import Footer from './components/Footer'
 import ServicePage from './pages/ServicePage'
 
@@ -47,7 +48,8 @@ function App() {
 
   return (
     <LangProvider>
-      <Navbar />
+      <LangToggle />
+      <FloatingWhatsApp />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicePage />} />

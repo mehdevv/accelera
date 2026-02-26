@@ -48,28 +48,7 @@ export default function Hero() {
         return () => obs.disconnect();
     }, []);
 
-    // Auto-play video when fully visible
-    useEffect(() => {
-        const video = videoRef.current;
-        const wrap = videoWrapRef.current;
-        if (!video || !wrap) return;
 
-        const obs = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((e) => {
-                    if (e.isIntersecting) {
-                        video.currentTime = 0;
-                        video.play();
-                    } else {
-                        video.pause();
-                    }
-                });
-            },
-            { threshold: 0.8 }
-        );
-        obs.observe(wrap);
-        return () => obs.disconnect();
-    }, []);
 
     return (
         <section className="hero">
