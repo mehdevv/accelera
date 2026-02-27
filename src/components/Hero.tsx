@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useLang } from '../i18n';
 import RamadanPromo from './RamadanPromo';
+import WhatsAppButton from './WhatsAppButton';
 
 function countUp(el: HTMLElement, target: number, suffix: string) {
     const dur = 1800;
@@ -61,10 +62,10 @@ export default function Hero() {
             <p className="hero-sub">{t('hero.sub')}</p>
 
             <div className="reveal" style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', marginBottom: 32 }}>
-                <a href="https://wa.me/213542452129" target="_blank" rel="noopener noreferrer" className="hero-btn">
+                <WhatsAppButton location="hero" className="hero-btn">
                     <img src="/whatsapp-white-icon.png" alt="WhatsApp" className="btn-wa-icon" />
                     {t('hero.btn')}
-                </a>
+                </WhatsAppButton>
                 <a href="/services" className="hero-offer-btn">
                     {t('hero.offer')}
                 </a>

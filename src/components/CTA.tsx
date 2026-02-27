@@ -1,5 +1,6 @@
 import { useLang } from '../i18n';
 import RamadanPromo from './RamadanPromo';
+import WhatsAppButton from './WhatsAppButton';
 
 export default function CTA() {
     const { t } = useLang();
@@ -10,10 +11,10 @@ export default function CTA() {
                 <h2>{t('cta.title1')}<br />{t('cta.title2')}</h2>
                 <p>{t('cta.sub')}</p>
                 <RamadanPromo />
-                <a href="https://wa.me/213542452129" target="_blank" rel="noopener noreferrer" className="btn-white">
+                <WhatsAppButton location="bottom" className="btn-white">
                     <img src="/whatsapp-white-icon.png" alt="WhatsApp" className="btn-wa-icon cta-wa-icon" />
                     {t('cta.btn')}
-                </a>
+                </WhatsAppButton>
             </div>
         </section>
     );

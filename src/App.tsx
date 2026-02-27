@@ -14,6 +14,7 @@ import NavRamadanPromo from './components/NavRamadanPromo'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import Footer from './components/Footer'
 import ServicePage from './pages/ServicePage'
+import MetaPixel from './components/MetaPixel'
 
 function HomePage() {
   return (
@@ -51,6 +52,7 @@ function App() {
     <LangProvider>
       <NavRamadanPromo />
       <FloatingWhatsApp />
+      <MetaPixel />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicePage />} />

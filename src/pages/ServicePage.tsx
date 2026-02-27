@@ -1,5 +1,6 @@
 import { useEffect, useState, Fragment } from 'react';
 import { useLang } from '../i18n';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 export default function ServicePage() {
     const { t } = useLang();
@@ -128,10 +129,10 @@ export default function ServicePage() {
                     </div>
 
                     <div className="sp-hero-actions reveal r5" style={{ marginTop: '48px', justifyContent: 'center' }}>
-                        <a href="https://wa.me/213542452129" target="_blank" rel="noopener noreferrer" className="sp-btn-primary">
+                        <WhatsAppButton location="sp_hero" className="sp-btn-primary">
                             <img src="/whatsapp-white-icon.png" alt="WhatsApp" />
                             {t('sp.hero.cta')}
-                        </a>
+                        </WhatsAppButton>
                         <button className="sp-btn-secondary" onClick={() => scrollTo('sp-system')}>
                             {t('sp.hero.cta2')}
                         </button>
@@ -357,10 +358,10 @@ export default function ServicePage() {
                             <span className="sp-discount-display">{t('sp.offer.ramadan.discount')}</span>
                             <span className="sp-discount-label">{t('sp.offer.ramadan.label')}</span>
                             <div className="sp-limited-badge">{t('sp.offer.ramadan.limited')}</div>
-                            <a href="https://wa.me/213542452129" target="_blank" rel="noopener noreferrer" className="sp-btn-primary sp-btn-full">
+                            <WhatsAppButton location="sp_ramadan" className="sp-btn-primary sp-btn-full">
                                 <img src="/whatsapp-white-icon.png" alt="WhatsApp" />
                                 {t('sp.offer.ramadan.cta')}
-                            </a>
+                            </WhatsAppButton>
                             <div className="sp-ramadan-note">{t('sp.offer.ramadan.note')}</div>
                         </div>
                     </div>
@@ -401,10 +402,10 @@ export default function ServicePage() {
                         </h2>
                         <p className="sp-cta-final-sub">{t('sp.cta.sub')}</p>
                         <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
-                            <a href="https://wa.me/213542452129" target="_blank" rel="noopener noreferrer" className="sp-btn-primary sp-btn-lg">
+                            <WhatsAppButton location="sp_final" className="sp-btn-primary sp-btn-lg">
                                 <img src="/whatsapp-white-icon.png" alt="WhatsApp" />
                                 {t('sp.cta.btn')}
-                            </a>
+                            </WhatsAppButton>
                         </div>
                         <div className="sp-cta-note">{t('sp.cta.note')}</div>
                     </div>
