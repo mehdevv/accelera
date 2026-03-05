@@ -1386,7 +1386,7 @@ white background
 .sp-hero {
   background: var(--white);
   color: var(--text);
-  padding: 80px 0 80px;
+  padding: 80px 0 0;
   text-align: center;
 }
 
@@ -1740,6 +1740,39 @@ white background
   border-bottom: 1px solid var(--border);
 }
 
+.sp-visual-container {
+  max-width: 1000px;
+  margin: 0 auto 64px;
+  background: var(--white);
+  border: 1px solid var(--border2);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow:
+    0 20px 50px rgba(26, 86, 219, 0.05),
+    0 4px 12px rgba(26, 86, 219, 0.03);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sp-visual-container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .sp-visual-container {
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+  }
+}
+
 .sp-flow-visual {
   display: flex;
   align-items: center;
@@ -1891,7 +1924,10 @@ white background
 /* ─── SP SYSTEM ─── */
 .sp-system {
   padding: 100px 0;
-  background: var(--white);
+  background: var(--bg);
+  /* Set to same as problem */
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .sp-steps-grid {
@@ -2034,22 +2070,31 @@ white background
 }
 
 .sp-benefit-icon {
-  width: 56px;
-  height: 56px;
-  background: var(--blue-pale);
-  border: 1px solid var(--border2);
-  border-radius: 14px;
+  width: 64px;
+  height: 64px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
   margin-bottom: 24px;
   z-index: 1;
-  transition: transform 0.4s var(--ease);
+  transition: all 0.4s var(--ease);
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(26, 86, 219, 0.05);
+}
+
+.sp-benefit-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .sp-benefit-card:hover .sp-benefit-icon {
   transform: scale(1.1) rotate(-5deg);
+  border-color: var(--blue-light);
+  box-shadow: 0 8px 20px rgba(26, 86, 219, 0.1);
 }
 
 .sp-benefit-title {

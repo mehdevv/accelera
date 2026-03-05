@@ -1,0 +1,384 @@
+{
+  "sales_page_design_system": {
+    "meta": {
+      "version": "2.0",
+      "description": "Sales page design system — specific to accelera.top/services (Arabic RTL React page). Updated after CRO audit.",
+      "page_url": "accelera.top/services",
+      "language": "Arabic",
+      "direction": "rtl",
+      "framework": "React + Tailwind CSS",
+      "last_audited": "2026-03-05",
+      "audit_findings_summary": [
+        "CRITICAL: No testimonials or result screenshots section",
+        "CRITICAL: Hero lacks social proof above the fold",
+        "HIGH: No instructor credibility section",
+        "HIGH: Comparison table buried too low on page",
+        "HIGH: Offer section missing price anchoring (no strikethrough original price)",
+        "MEDIUM: Video thumbnail too plain, play button too small",
+        "MEDIUM: Stats bar too small and placed below video",
+        "MEDIUM: Final CTA section lacks contrast and urgency",
+        "MEDIUM: No mobile sticky CTA bar",
+        "LOW: No floating WhatsApp button"
+      ]
+    },
+    "active_color_scheme": "accelera_light_blue",
+    "color_schemes": {
+      "accelera_light_blue": {
+        "use_case": "ACTIVE — Current accelera.top page scheme",
+        "background": "#FFFFFF",
+        "surface": "#F8F9FF",
+        "surface_alt": "#F0F4FF",
+        "primary": "#3B6BF5",
+        "primary_dark": "#2451D4",
+        "primary_light": "#EEF2FF",
+        "accent_red": "#E53E3E",
+        "accent_success": "#22C55E",
+        "accent_warning": "#F59E0B",
+        "text_primary": "#0F172A",
+        "text_secondary": "#334155",
+        "text_muted": "#64748B",
+        "cta_button_bg": "#3B6BF5",
+        "cta_button_text": "#FFFFFF",
+        "cta_button_hover": "#2451D4",
+        "highlight_bg": "#EEF2FF",
+        "border": "#E2E8F0",
+        "dark_section_bg": "#0F172A",
+        "dark_section_text": "#FFFFFF",
+        "urgency_red": "#E53E3E",
+        "whatsapp_green": "#25D366",
+        "strikethrough_color": "#94A3B8"
+      }
+    },
+    "typography": {
+      "direction": "rtl",
+      "font_primary": "Cairo",
+      "font_fallback": "Arial, sans-serif",
+      "google_fonts_import": "https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap",
+      "scale": {
+        "hero_headline": {
+          "size": "clamp(2rem, 5vw, 3.5rem)",
+          "weight": 900,
+          "line_height": 1.2
+        },
+        "section_headline": {
+          "size": "clamp(1.5rem, 3vw, 2.5rem)",
+          "weight": 700,
+          "line_height": 1.3
+        },
+        "subheadline": {
+          "size": "clamp(1.1rem, 2vw, 1.4rem)",
+          "weight": 600,
+          "line_height": 1.5
+        },
+        "stats_number": {
+          "size": "clamp(1.8rem, 3vw, 2.8rem)",
+          "weight": 900
+        },
+        "body": {
+          "size": "1rem",
+          "weight": 400,
+          "line_height": 1.7
+        },
+        "small": {
+          "size": "0.875rem",
+          "weight": 400,
+          "line_height": 1.6
+        },
+        "cta_button": {
+          "size": "1.1rem",
+          "weight": 700,
+          "letter_spacing": "0.03em"
+        },
+        "price_real": {
+          "size": "2rem",
+          "weight": 900,
+          "color": "var(--primary)"
+        },
+        "price_strikethrough": {
+          "size": "1.125rem",
+          "weight": 400,
+          "color": "#94A3B8",
+          "text_decoration": "line-through"
+        }
+      }
+    },
+    "layout": {
+      "page_max_width": "960px",
+      "section_padding": {
+        "desktop": "80px 0",
+        "mobile": "48px 0"
+      },
+      "content_padding": {
+        "desktop": "0 40px",
+        "mobile": "0 20px"
+      },
+      "column_gap": "32px",
+      "section_gap": "64px"
+    },
+    "section_structure": {
+      "recommended_order": [
+        "1_hero",
+        "2_stats_bar",
+        "3_video_hook",
+        "4_problem_agitation",
+        "5_comparison_table",
+        "6_how_it_works",
+        "7_what_you_gain",
+        "8_instructor_credibility",
+        "9_testimonials",
+        "10_results_screenshots",
+        "11_why_better_than_alternatives",
+        "12_offer_pricing",
+        "13_faq",
+        "14_final_cta"
+      ],
+      "page_audit_status": {
+        "1_hero": "EXISTS — needs: social proof badge above fold, colored keyword spans in headline, fade-in animation",
+        "2_stats_bar": "EXISTS but MISPLACED — move ABOVE video, font-size to clamp(1.8rem,3vw,2.8rem) weight 900, add countUp on scroll",
+        "3_video_hook": "EXISTS — needs: text overlay on thumbnail, play button 64px red with pulse animation, box-shadow on container",
+        "4_problem_agitation": "EXISTS (هذا العرض لكم إذا كنتو) — copy is too generic, needs more emotional specificity",
+        "5_comparison_table": "EXISTS but BURIED — move immediately after problem section, add مقارنة حقيقية badge above headline",
+        "6_how_it_works": "EXISTS (كيفاش يخدم السيستام) — OK as-is",
+        "7_what_you_gain": "EXISTS (واش تكسب) — OK as-is",
+        "8_instructor_credibility": "MISSING — create InstructorSection.jsx",
+        "9_testimonials": "MISSING — HIGHEST PRIORITY — create TestimonialsSection.jsx",
+        "10_results_screenshots": "MISSING — create ResultsSection.jsx",
+        "11_why_better_than_alternatives": "EXISTS (علاش خير من البدائل) — OK as-is",
+        "12_offer_pricing": "EXISTS — needs: strikethrough price, savings line, urgency badge, pulse CTA button",
+        "13_faq": "EXISTS — expand from 4 to minimum 6 questions",
+        "14_final_cta": "EXISTS — needs: dark #0F172A background, white text, guarantee badge, scarcity line, pulse button",
+        "sticky_mobile_cta": "MISSING — create StickyMobileCTA.jsx (md:hidden, appears after scroll 400px)",
+        "whatsapp_float": "MISSING — create FloatingWhatsApp.jsx (fixed bottom-left, #25D366)"
+      },
+      "section_specs": {
+        "1_hero": {
+          "required_elements": [
+            "Main headline — font-weight 900, clamp(2rem,5vw,3.5rem)",
+            "2-3 key words wrapped in <span> with primary color #3B6BF5",
+            "Subheadline — font-weight 600, muted color",
+            "Social proof badge — pill shape, checkmark icon, text like '+600 وكالة ومستقل طبّقوا النظام'",
+            "Primary CTA button — blue, full-width on mobile",
+            "Fade-in-up animation on headline (0.6s) and subheadline (delay 0.15s)"
+          ]
+        },
+        "2_stats_bar": {
+          "required_elements": [
+            "4 stat numbers, each clamp(1.8rem,3vw,2.8rem) font-weight 900",
+            "CountUp animation triggered by IntersectionObserver",
+            "Light blue background strip #F0F4FF",
+            "Vertical dividers between stats",
+            "Small label under each number in muted color"
+          ]
+        },
+        "3_video_hook": {
+          "required_elements": [
+            "Video thumbnail with dark gradient overlay at bottom",
+            "Bold white text overlay: 'شاهد كيف يشتغل النظام'",
+            "Play button: 64x64px, background #E53E3E, white triangle, pulse animation",
+            "Container box-shadow: 0 8px 40px rgba(0,0,0,0.2)",
+            "Container border-radius: 12px"
+          ]
+        },
+        "12_offer_pricing": {
+          "required_elements": [
+            "Urgency badge above card: 'العرض ينتهي قريباً 🔥', bg #E53E3E, white text",
+            "Original price with line-through: '5,000 DA', color #94A3B8",
+            "Real price large: '800 DA', color #3B6BF5, font-weight 900, font-size 2rem",
+            "Savings line: 'وفّرت 4,200 DA', color #22C55E",
+            "CTA button: full-width, padding 16px, pulse animation"
+          ]
+        },
+        "14_final_cta": {
+          "required_elements": [
+            "Background: #0F172A (dark navy)",
+            "All text: white",
+            "Headline: clamp(1.6rem,3vw,2.4rem) font-weight 900",
+            "Price display: same as offer section (strikethrough + real + savings)",
+            "CTA button: min-width 320px desktop, full-width mobile, padding 18px 48px, pulse animation",
+            "Guarantee line: '🛡️ ضمان استرجاع كامل خلال 7 أيام', small muted text",
+            "Scarcity line: '⚠️ الأماكن محدودة — لا تفوّت الفرصة', color #F59E0B"
+          ]
+        }
+      }
+    },
+    "new_components_to_create": {
+      "InstructorSection": {
+        "file": "InstructorSection.jsx",
+        "priority": "HIGH",
+        "background": "#F8F9FF",
+        "layout": "image right, text left (RTL = image on left visually)",
+        "elements": [
+          "Section badge pill: 'من أنا؟'",
+          "Name + title headline",
+          "4 bullet points with checkmark icons (placeholder)",
+          "Row of 2-3 stat numbers"
+        ],
+        "placeholder_note": "TODO: Replace with real instructor photo, real achievements, and real stats"
+      },
+      "TestimonialsSection": {
+        "file": "TestimonialsSection.jsx",
+        "priority": "CRITICAL — biggest trust gap",
+        "section_headline": "شنو قالو اللي جرّبوا",
+        "layout": "2-column grid desktop, 1-column mobile",
+        "card_elements": [
+          "Avatar circle (placeholder grey)",
+          "5 gold stars ★★★★★",
+          "Quote text (placeholder)",
+          "Client name + role",
+          "Result badge: green pill, e.g. '+3 عملاء في أسبوع'"
+        ],
+        "placeholder_note": "TODO: Replace with real video testimonials — ideally 6-10 video cards"
+      },
+      "ResultsSection": {
+        "file": "ResultsSection.jsx",
+        "priority": "HIGH",
+        "section_headline": "نتائج حقيقية من عملاء حقيقيين",
+        "layout": "2-3 column masonry grid",
+        "card_style": "border 1px #E2E8F0, border-radius 8px, box-shadow, slight random rotation for authenticity",
+        "placeholder_note": "TODO: Replace with real income/result screenshots from clients"
+      },
+      "StickyMobileCTA": {
+        "file": "StickyMobileCTA.jsx",
+        "visibility": "md:hidden (Tailwind — hidden on tablet and above)",
+        "trigger": "appears after window.scrollY > 400",
+        "position": "fixed bottom-0 left-0 right-0 z-50",
+        "style": "white background, border-top 1px #E2E8F0, box-shadow upward, padding 12px 16px",
+        "content": "Full-width primary CTA button"
+      },
+      "FloatingWhatsApp": {
+        "file": "FloatingWhatsApp.jsx",
+        "position": "fixed bottom-6 left-6 (RTL convention)",
+        "z_index": 49,
+        "style": "circle w-14 h-14, background #25D366, white WhatsApp SVG icon, box-shadow",
+        "hover": "scale(1.1) transition",
+        "tooltip": "تواصل معنا على واتساب",
+        "action": "window.open('https://wa.me/YOUR_NUMBER')",
+        "placeholder_note": "TODO: Replace YOUR_NUMBER with real WhatsApp number including country code"
+      }
+    },
+    "components": {
+      "cta_button": {
+        "border_radius": "8px",
+        "padding": "16px 40px",
+        "font_weight": 700,
+        "font_size": "1.1rem",
+        "background": "#3B6BF5",
+        "color": "#FFFFFF",
+        "box_shadow": "0 4px 20px rgba(59,107,245,0.35)",
+        "hover_effect": "translateY(-2px) + background #2451D4",
+        "pulse_animation": "scale 1 to 1.03 to 1, every 3s, on final CTA only",
+        "mobile": "width 100%",
+        "transition": "0.2s ease"
+      },
+      "section_badge": {
+        "display": "inline-block",
+        "background": "#EEF2FF",
+        "color": "#3B6BF5",
+        "border_radius": "999px",
+        "padding": "4px 16px",
+        "font_size": "0.85rem",
+        "font_weight": 600,
+        "margin_bottom": "12px",
+        "text_align": "center"
+      },
+      "card": {
+        "border_radius": "12px",
+        "padding": "24px",
+        "border": "1px solid #E2E8F0",
+        "box_shadow": "0 2px 12px rgba(0,0,0,0.06)",
+        "hover_effect": "translateY(-4px) + box-shadow 0 8px 32px rgba(0,0,0,0.12)",
+        "transition": "0.25s ease",
+        "background": "#FFFFFF"
+      },
+      "urgency_badge": {
+        "background": "#E53E3E",
+        "color": "#FFFFFF",
+        "border_radius": "4px",
+        "padding": "6px 14px",
+        "font_size": "0.875rem",
+        "font_weight": 700,
+        "display": "inline-block"
+      },
+      "social_proof_badge": {
+        "background": "#F0F4FF",
+        "color": "#3B6BF5",
+        "border": "1px solid #C7D7FD",
+        "border_radius": "999px",
+        "padding": "6px 16px",
+        "font_size": "0.875rem",
+        "font_weight": 600,
+        "icon": "checkmark before text"
+      }
+    },
+    "animations": {
+      "fade_in_up": {
+        "keyframe": "opacity 0to1 + translateY 20px to 0",
+        "duration": "0.6s",
+        "easing": "ease-out",
+        "usage": "hero headline and subheadline on page load"
+      },
+      "stagger": {
+        "rule": "each child delayed by 0.15s",
+        "usage": "hero elements, card grids"
+      },
+      "count_up": {
+        "trigger": "IntersectionObserver — fires when stats bar enters viewport",
+        "method": "requestAnimationFrame loop from 0 to final value",
+        "duration": "1.5s",
+        "easing": "ease-out"
+      },
+      "pulse_cta": {
+        "keyframe": "scale 1 to 1.03 to 1",
+        "duration": "2s",
+        "repeat": "infinite",
+        "usage": "final CTA button and offer card CTA only — NOT every button"
+      },
+      "pulse_play": {
+        "keyframe": "scale 1 to 1.08 to 1",
+        "duration": "2s",
+        "repeat": "infinite",
+        "usage": "video play button"
+      },
+      "accessibility": "All animations wrapped in @media (prefers-reduced-motion: no-preference)"
+    },
+    "mobile_rules": {
+      "breakpoint_tablet": "768px",
+      "breakpoint_mobile": "480px",
+      "all_grids": "collapse to 1 column below 768px",
+      "cta_buttons": "width 100% below 768px",
+      "horizontal_padding": "16px on mobile",
+      "sticky_bar": "StickyMobileCTA appears after 400px scroll, hidden on desktop",
+      "font_scale": "hero headline reduces by ~30% on mobile via clamp()"
+    },
+    "conversion_rules": {
+      "cta_placement_order": [
+        "1. Hero section (above fold)",
+        "2. After stats bar",
+        "3. After testimonials section",
+        "4. Inside offer/pricing card",
+        "5. Final CTA section (largest, with pulse)"
+      ],
+      "price_display_rule": "ALWAYS show strikethrough original price before real price. Never show discount % alone.",
+      "social_proof_rule": "Distribute trust signals throughout page — hero badge, stats bar, testimonials mid-page, guarantee at bottom",
+      "urgency_rule": "Include at least 1 urgency/scarcity element near each CTA",
+      "specificity_rule": "Use exact numbers everywhere: '+600 عميل' not 'مئات العملاء'",
+      "rtl_rule": "All new elements must have dir=rtl and text-right as default",
+      "whatsapp_rule": "Floating WhatsApp button is mandatory for Arabic market pages"
+    },
+    "spacing_system": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "40px",
+      "xxl": "64px",
+      "section": "96px"
+    },
+    "shadows": {
+      "card": "0 2px 12px rgba(0,0,0,0.08)",
+      "card_hover": "0 8px 32px rgba(0,0,0,0.16)",
+      "button": "0 4px 20px rgba(59,107,245,0.35)",
+      "video": "0 8px 40px rgba(0,0,0,0.2)"
+    }
+  }
+}

@@ -9,12 +9,6 @@ export default function ServicePage() {
     // scroll to top on load
     useEffect(() => { window.scrollTo(0, 0); }, []);
 
-    const stats = [
-        { num: 'sp.hero.stat1.num', label: 'sp.hero.stat1.label' },
-        { num: 'sp.hero.stat2.num', label: 'sp.hero.stat2.label' },
-        { num: 'sp.hero.stat3.num', label: 'sp.hero.stat3.label' },
-        { num: 'sp.hero.stat4.num', label: 'sp.hero.stat4.label' },
-    ];
 
     const audience = [
         { icon: '📣', key: 'sp.audience.1' },
@@ -32,6 +26,7 @@ export default function ServicePage() {
         { key: 'sp.problem.flow.4', icon: '🤷‍♂️' },
         { key: 'sp.problem.flow.5', icon: '❌', negative: true },
     ];
+
 
     const problems = [
         { icon: '🌀', title: 'sp.problem.c1.title', desc: 'sp.problem.c1.desc' },
@@ -55,13 +50,14 @@ export default function ServicePage() {
         { key: 'sp.system.flow.5', icon: '🤝', positive: true },
     ];
 
+
     const benefits = [
-        { icon: '⚡', title: 'sp.benefits.b1.title', desc: 'sp.benefits.b1.desc' },
-        { icon: '🎯', title: 'sp.benefits.b2.title', desc: 'sp.benefits.b2.desc' },
-        { icon: '📈', title: 'sp.benefits.b3.title', desc: 'sp.benefits.b3.desc' },
-        { icon: '💸', title: 'sp.benefits.b4.title', desc: 'sp.benefits.b4.desc' },
-        { icon: '🌙', title: 'sp.benefits.b5.title', desc: 'sp.benefits.b5.desc' },
-        { icon: '🏆', title: 'sp.benefits.b6.title', desc: 'sp.benefits.b6.desc' },
+        { icon: '/ICONS/5.png', title: 'sp.benefits.b1.title', desc: 'sp.benefits.b1.desc' },
+        { icon: '/ICONS/6.png', title: 'sp.benefits.b2.title', desc: 'sp.benefits.b2.desc' },
+        { icon: '/ICONS/7.png', title: 'sp.benefits.b3.title', desc: 'sp.benefits.b3.desc' },
+        { icon: '/ICONS/8.png', title: 'sp.benefits.b4.title', desc: 'sp.benefits.b4.desc' },
+        { icon: '/ICONS/9.png', title: 'sp.benefits.b5.title', desc: 'sp.benefits.b5.desc' },
+        { icon: '/ICONS/10.png', title: 'sp.benefits.b6.title', desc: 'sp.benefits.b6.desc' },
     ];
 
     const beforeMetrics = [
@@ -138,14 +134,10 @@ export default function ServicePage() {
                         </button>
                     </div>
 
-                    <div className="sp-hero-stats reveal r6">
-                        {stats.map((s, i) => (
-                            <div className="sp-stat-item" key={i}>
-                                <span className="sp-stat-num">{t(s.num)}</span>
-                                <span className="sp-stat-label">{t(s.label)}</span>
-                            </div>
-                        ))}
+                    <div className="sp-hero-visual-stat reveal r6" style={{ marginTop: '48px', textAlign: 'center', marginBottom: '-40px' }}>
+                        <img src="/fifty_percent.png" alt="50% Increase" style={{ maxWidth: '700px', width: '95%', height: 'auto', display: 'inline-block', verticalAlign: 'bottom' }} />
                     </div>
+
                 </div>
             </section>
 
@@ -175,6 +167,11 @@ export default function ServicePage() {
                         <h2>{t('sp.problem.title')}</h2>
                         <p className="sp-section-desc">{t('sp.problem.desc')}</p>
                     </div>
+
+                    <div className="sp-visual-container reveal r2">
+                        <img src="/BEFORE.png" alt="Before System" />
+                    </div>
+
                     <div className="sp-flow-visual reveal r2">
                         {problemFlow.map((step, i) => (
                             <Fragment key={i}>
@@ -192,6 +189,7 @@ export default function ServicePage() {
                             </Fragment>
                         ))}
                     </div>
+
                     <div className="sp-problems-grid reveal r3">
                         {problems.map((p, i) => (
                             <div className="sp-problem-card" key={i}>
@@ -217,18 +215,13 @@ export default function ServicePage() {
                         <h2>{t('sp.system.title')}</h2>
                         <p className="sp-section-desc">{t('sp.system.desc')}</p>
                     </div>
-                    <div className="sp-steps-grid reveal r2">
-                        {steps.map((s, i) => (
-                            <div className="sp-step-card" key={i}>
-                                <span className="sp-step-num">{t(s.num)}</span>
-                                <span className="sp-step-icon">{t(s.icon)}</span>
-                                <div className="sp-step-title">{t(s.title)}</div>
-                                <div className="sp-step-desc">{t(s.desc)}</div>
-                            </div>
-                        ))}
+
+                    <div className="sp-visual-container reveal r2">
+                        <img src="/AFTER.png" alt="After System" />
                     </div>
-                    <div className="sp-new-flow reveal r3">
-                        <div className="sp-flow-label">{t('sp.system.flow.label')}</div>
+
+                    <div className="sp-new-flow reveal r3" style={{ background: 'transparent', border: 'none', padding: 0 }}>
+                        <div className="sp-flow-label" style={{ marginBottom: '32px' }}>{t('sp.system.flow.label')}</div>
                         <div className="sp-flow-visual">
                             {systemFlow.map((step, i) => (
                                 <Fragment key={i}>
@@ -247,6 +240,17 @@ export default function ServicePage() {
                             ))}
                         </div>
                     </div>
+
+                    <div className="sp-steps-grid reveal r3">
+                        {steps.map((s, i) => (
+                            <div className="sp-step-card" key={i}>
+                                <span className="sp-step-num">{t(s.num)}</span>
+                                <span className="sp-step-icon">{t(s.icon)}</span>
+                                <div className="sp-step-title">{t(s.title)}</div>
+                                <div className="sp-step-desc">{t(s.desc)}</div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
@@ -260,7 +264,9 @@ export default function ServicePage() {
                     <div className="sp-benefits-grid reveal r2">
                         {benefits.map((b, i) => (
                             <div className="sp-benefit-card" key={i}>
-                                <span className="sp-benefit-icon">{b.icon}</span>
+                                <div className="sp-benefit-icon">
+                                    <img src={b.icon} alt="" />
+                                </div>
                                 <div className="sp-benefit-title">{t(b.title)}</div>
                                 <div className="sp-benefit-desc">{t(b.desc)}</div>
                             </div>
@@ -298,7 +304,13 @@ export default function ServicePage() {
                         </div>
                     </div>
                     <div className="sp-proof-highlight reveal r3">
-                        <span className="sp-highlight-num">{t('sp.proof.highlight.num')}</span>
+                        <span className="sp-highlight-num">
+                            {t('sp.proof.highlight.num').startsWith('/') ? (
+                                <img src={t('sp.proof.highlight.num')} alt="highlight" style={{ maxHeight: '100px', width: 'auto' }} />
+                            ) : (
+                                t('sp.proof.highlight.num')
+                            )}
+                        </span>
                         <span className="sp-highlight-desc">{t('sp.proof.highlight.desc')}</span>
                     </div>
                 </div>
